@@ -1,6 +1,16 @@
-import Image from 'next/image'
+import axios from "axios";
+import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  try {
+    const res = await axios.post(
+      "https://webservices.amazon.com.br/!YW16LTEuMDtjb20uYW1hem9uLnBhYXBpNS52MS5Qcm9kdWN0QWR2ZXJ0aXNpbmdBUEl2MS5TZWFyY2hJdGVtczt7CiAgICAiS2V5d29yZHMiOiAiZ2FzaCBiZWxsIiwKICAgICJSZXNvdXJjZXMiOiBbCiAgICAgICAgIkl0ZW1JbmZvLkJ5TGluZUluZm8iLAogICAgICAgICJJdGVtSW5mby5Db250ZW50SW5mbyIsCiAgICAgICAgIkl0ZW1JbmZvLkNvbnRlbnRSYXRpbmciLAogICAgICAgICJJdGVtSW5mby5DbGFzc2lmaWNhdGlvbnMiLAogICAgICAgICJJdGVtSW5mby5FeHRlcm5hbElkcyIsCiAgICAgICAgIkl0ZW1JbmZvLkZlYXR1cmVzIiwKICAgICAgICAiSXRlbUluZm8uTWFudWZhY3R1cmVJbmZvIiwKICAgICAgICAiSXRlbUluZm8uUHJvZHVjdEluZm8iLAogICAgICAgICJJdGVtSW5mby5UZWNobmljYWxJbmZvIiwKICAgICAgICAiSXRlbUluZm8uVGl0bGUiLAogICAgICAgICJJdGVtSW5mby5UcmFkZUluSW5mbyIKICAgIF0sCiAgICAiUGFydG5lclRhZyI6ICJwcm9tMGNiLTIwIiwKICAgICJQYXJ0bmVyVHlwZSI6ICJBc3NvY2lhdGVzIiwKICAgICJNYXJrZXRwbGFjZSI6ICJ3d3cuYW1hem9uLmNvbS5iciIKfQ=="
+    );
+    console.log(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -15,7 +25,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -47,7 +57,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
+            Docs{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -64,7 +74,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
+            Learn{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -81,7 +91,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
+            Templates{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -98,7 +108,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
+            Deploy{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -109,5 +119,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
