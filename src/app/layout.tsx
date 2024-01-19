@@ -1,22 +1,31 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Providers } from "./providers";
+import Header from "@/components/header";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Aviso de Oferta',
-  description: 'O melhor lugar pra ter aquela oferta',
-}
+  title: "Aviso de Oferta",
+  description: "O melhor lugar pra ter aquela oferta",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          <div className="bg-black items-center justify-center flex flex-col">
+            <Header />
+            {children}
+          </div>
+        </Providers>
+      </body>
     </html>
-  )
+  );
 }
