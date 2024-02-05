@@ -20,9 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className="bg-black items-center justify-center flex flex-col">
+          <div className="bg-black min-h-screen items-center flex flex-col relative">
             <Header />
-            {children}
+            <div className="items-center justify-center flex flex-col ">
+              {children}
+            </div>
           </div>
         </Providers>
       </body>
