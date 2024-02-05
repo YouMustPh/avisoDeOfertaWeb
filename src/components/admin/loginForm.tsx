@@ -18,6 +18,7 @@ import { useMutation } from "@tanstack/react-query";
 import { auth } from "@/app/api/user";
 import { setCookies } from "@/lib/cookies";
 import { toast } from "../ui/use-toast";
+import { Loader2 } from "lucide-react";
 
 export default function LoginForm() {
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -61,7 +62,9 @@ export default function LoginForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 flex flex-col w-full"
+        className={`space-y-8 flex flex-col w-full ${
+          signIn.isPending ? "pointer-events-none" : ""
+        }`}
       >
         <div className="flex flex-col gap-4 text-white">
           <FormField
@@ -100,7 +103,18 @@ export default function LoginForm() {
             )}
           />
         </div>
-        <Button type="submit">Entrar</Button>
+        <Button
+          type="submit"
+          className={`flex gap-2`}
+          disabled={signIn.isPending}
+        >
+          <Loader2
+            className={`animate-spin w-6 h-6 ${
+              signIn.isPending ? "block" : "hidden"
+            }`}
+          />
+          Entrar
+        </Button>
       </form>
     </Form>
   );
