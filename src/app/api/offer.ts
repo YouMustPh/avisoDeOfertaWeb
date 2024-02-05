@@ -10,3 +10,7 @@ export const createOffer = async (data: OfferReq): Promise<OfferRes> => {
   const response = await api.post("/offer", data);
   return response.data;
 };
+
+export const deleteOffer = async (id: string): Promise<void> => {
+  await api.delete(`/offer/${id}`);
+};
