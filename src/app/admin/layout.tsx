@@ -19,7 +19,7 @@ export default function AdminLayout({
   }
 
   return (
-    <section>
+    <section className="w-screen">
       <div className="absolute left-0 top-1/2">
         <AdminDrawer />
       </div>

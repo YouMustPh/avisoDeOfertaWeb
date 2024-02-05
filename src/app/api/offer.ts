@@ -14,3 +14,8 @@ export const createOffer = async (data: OfferReq): Promise<OfferRes> => {
 export const deleteOffer = async (id: string): Promise<void> => {
   await api.delete(`/offer/${id}`);
 };
+
+export const getOfferById = async (id: string): Promise<OfferRes> => {
+  const response = await api.get(`/offer/${id}`);
+  return response.data;
+};

@@ -22,7 +22,7 @@ export default function RootLayout({
         <Providers>
           <div className="bg-black min-h-screen items-center flex flex-col relative">
             <Header />
-            <div className="items-center justify-center flex flex-col ">
+            <div className="items-center justify-center flex flex-col">
               {children}
             </div>
           </div>
